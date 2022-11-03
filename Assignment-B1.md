@@ -1,7 +1,7 @@
 Assignment B1
 ================
 Momenul Haque Mondol
-(2022-11-02)
+(2022-11-03)
 
 ``` r
 #' @title  Calculating detailed summary of a numeric vector
@@ -177,16 +177,36 @@ palmerpenguins::penguins %>%
     ##   <int> <dbl> <dbl>  <int> <dbl> <int> <dbl> <int> <dbl> <int>
     ## 1  3750  3750  3750   3750  3750  3750     0     0    NA     0
 
--   Testing the **my_summary()** function by three conditions.
+-   We can check our expected results from **my_summary()** function as
+    follows-
 
 ``` r
 suppressPackageStartupMessages(library(testthat))
+
+# checking a list of expected results 
+  expect_setequal(c(my_summary(var = 2:8)[c("min", "max")]), list(2, 8))
+
+# checking a single value of expected result 
+  expect_equal(my_summary(var = c(0:20))["mean"], tibble(mean=10))
+
+# checking if missing value is passed   
+  expect_error(my_summary(var = c(NA, 3, 4), na.rm = FALSE), "missing values in your variable!")
+```
+
+-   Formal testing of the **my_summary()** function using three unique
+    conditions.
+
+``` r
+suppressPackageStartupMessages(library(testthat))
+
+# A formal test of under three different conditions, which is very useful.
+
 test_that("Testing my_summary function", {
   expect_equal(my_summary(var = 1:10)[c("min", "max")], tibble(min=1, max=10))
   expect_error(my_summary(var = c("2", 3, 4)), "I am so sorry, but this function only works for numeric input!")
-  expect_error(my_summary(var = c(NA, 3, 4), na.rm = FALSE), "missing values in your variable!")
+   expect_setequal(c(my_summary(var = 2:8)[c("min", "max")]), list(2, 8))
 
   })
 ```
 
-    ## Test passed 😸
+    ## Test passed 🥳
