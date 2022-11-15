@@ -1,0 +1,19 @@
+Package: mySummary
+Title: Calculating detailed summary of a numeric variable
+Version: 0.0.0.9000
+Authors@R: 
+    person("Momenul Haque", "Mondol", , "mhmondol@student.ubc.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Provides five number summary (min, Q1, median, Q3, and max) of a numeric vector.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Imports: 
+    stats

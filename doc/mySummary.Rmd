@@ -1,0 +1,43 @@
+---
+title: "mySummary"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mySummary}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+# Introduction
+
+It is frequently required to find out basic summary statistics while analyzing data. The common  summary statistics for a numerical variable are minimum, maximum, mean, median, inter-quartile range (IQR), standard deviation. The *mySummary* package is intended to provide all the basic summary statistics of a numeric variable. In addition, it reports the missing values.
+
+# Installation
+Since the package isn't uploaded to CRAN, it requires to install from Github repository. The following code would drive one to install the package and load it.
+
+```{r}
+devtools::install_github("momenulhaque/mySummary")
+library(mySummary)
+
+```
+
+# Usage
+
+```{r}
+# Defining a data set
+Dat <- data.frame(age = c(40, 35, 27, 52, 29, 29, 46), sex = c("M", "F", "M", "F", "F", "M", "M"))
+
+# Finding a detailed summary of age variable
+mySummary(Dat$age)
+
+# Finding a detailed summary of age variable for male only
+
+mySummary(Dat[Dat$sex=="M", ]$age)
+```
+
+
