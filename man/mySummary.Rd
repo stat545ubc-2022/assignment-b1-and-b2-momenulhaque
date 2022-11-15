@@ -31,6 +31,4 @@ mySummary(Dat[Dat$sex=="M", ]$age)
 
 
 
-
-
 }

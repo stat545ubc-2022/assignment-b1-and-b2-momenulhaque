@@ -21,8 +21,6 @@
 #'
 #'
 #'
-#'
-#'
 mySummary <- function(var, na.rm = TRUE, ...)
 {
   # Checking the var class.
